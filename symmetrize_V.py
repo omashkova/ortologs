@@ -86,5 +86,6 @@ print('Done!')
 
 print('Saving symmetrized V matrix to .hdf5 file...')
 da_array = da.from_delayed(result, V.shape, V.dtype)
+da_array = da_array.rechunk(chunks=CHUNK_NUM)
 da.to_hdf5('/home/mashkova/ortologs/7_species_res/sym_V.hdf5', '/x', da_array)
 print('Done!')
